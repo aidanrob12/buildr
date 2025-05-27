@@ -1,0 +1,10 @@
+main,
+header {
+  max-width: 65ch;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+main {
+  line-height: 1.6;
+}
