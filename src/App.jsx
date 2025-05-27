@@ -1,38 +1,14 @@
-import { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
-import "./App.css";
-
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+import { Routes, Route } from "react-router";
+import Blog from "./pages/blog";
+import CreateBlog from "./pages/CreateBlog";
 
 function App() {
-  const [blogs, setBlogs] = useState([]);
-
-  useEffect(() => {
-    getBlogs();
-  }, []);
-
-  async function getBlogs() {
-    const { data } = await supabase.from("blogs").select();
-    setBlogs(data);
-  }
-
   return (
     <>
-      <header>
-        <h1>Aidan's Blog</h1>
-      </header>
-
-      <main>
-        {blogs.map((blog) => (
-          <article key={blog.id}>
-            <h2>{blog.title}</h2>
-            <p>{blog.content}</p>
-          </article>
-        ))}
-      </main>
+      <Routes>
+        <Route path="/" element={<Blog />} />
+        <Route path="/create" element={<CreateBlog />} />
+      </Routes>
     </>
   );
 }
