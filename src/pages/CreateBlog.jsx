@@ -1,14 +1,21 @@
 import { useState } from "react";
+import { supabase } from "../lib/supabaseClient";
+import { useNavigate } from "react-router";
 import "./CreateBlog.css";
 
 const CreateBlog = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Add Supabase integration later
-    console.log({ title, body });
+    const error = await supabase.from("blogs").insert({ title, content: body });
+    if (error) {
+      console.error(error);
+    }
+    navigate("/");
   };
 
   return (
