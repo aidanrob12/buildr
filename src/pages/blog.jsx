@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
-import "./blog.css";
+import "./Blog.css";
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,

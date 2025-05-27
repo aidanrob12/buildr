@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router";
-import Blog from "./pages/blog";
+import Blog from "./pages/Blog";
 import CreateBlog from "./pages/CreateBlog";
 
 function App() {
