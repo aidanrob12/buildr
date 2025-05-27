@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./blog.css";
+import "./CreateBlog.css";
 
 const CreateBlog = () => {
   const [title, setTitle] = useState("");
